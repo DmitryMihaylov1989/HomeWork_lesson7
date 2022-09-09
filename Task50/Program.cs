@@ -15,41 +15,41 @@ Console.WriteLine("введите номер строки(в диапазоне 
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("введите номер столбца(в диапазоне от 1 до 10) ");
 int b = Convert.ToInt32(Console.ReadLine());
-int [,] numbers = new int [10,10];
+int [,] num = new int [10,10];
 Random rnd = new Random();
-FillArrayRandomNumbers(numbers);
+FillArrayRandomNumbers(num);
 
-if (a > numbers.GetLength(0) || b > numbers.GetLength(1))
+if (a > num.GetLength(0) || b > num.GetLength(1))
 {
     Console.WriteLine("такого элемента в массиве не существует (вне диапазона)");
 }
 else
 {
-    Console.WriteLine($"элемент равен {numbers[a-1,b-1]}");
+    Console.WriteLine($"элемент равен {num[a-1,b-1]}");
     Console.WriteLine();
 }
 
-PrintArray(numbers);
+PrintArray(num);
 
-void FillArrayRandomNumbers(int[,] array)
+void FillArrayRandomNumbers(int[,] matrix)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
         {        
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                array [i, j] = Convert.ToInt32(rnd.Next(0, 100));
+                matrix [i, j] = Convert.ToInt32(rnd.Next(0, 100));
             }   
         }
 }
 
-void PrintArray(int[,] array)
+void PrintArray(int[,] matrix)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
         Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(array[i,j] + " ");
+            Console.Write(matrix[i,j] + " ");
         }   
         Console.Write("]");
         Console.WriteLine(""); 
